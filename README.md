@@ -70,16 +70,12 @@ Bearer {token}
 
 ## 📌 User Flow
 ### 🔐 Register
-http
-Copy
-Edit
+
 POST http://localhost:8080/register
 Registers a new user into the database.
 
 ### 🔐 Login
-http
-Copy
-Edit
+
 POST http://localhost:8080/login
 Returns a JWT token in the response body.
 
@@ -91,43 +87,24 @@ Delete Profile
 DELETE http://localhost:8080/deleteUser
 Change Password
 
-http
-Copy
-Edit
 PUT http://localhost:8080/changePassword
 Update Profile
 
-http
-Copy
-Edit
 PUT http://localhost:8080/updateUser
 🛠️ Forgot & Reset Password (No Token Required)
 Forgot Password
 
-http
-Copy
-Edit
 POST http://localhost:8080/forget-password
 Reset Password
 
-http
-Copy
-Edit
 PUT http://localhost:8080/reset-password
 📈 Crypto Holdings APIs
 📌 One User → Many Holdings
 
 Add Holding
 
-http
-Copy
-Edit
 POST http://localhost:8080/api/wallet
 Example JSON:
-
-json
-Copy
-Edit
 {
   "coinName": "Ethereum",
   "coinSymbol": "ETH",
@@ -137,101 +114,59 @@ Edit
 }
 Get All Holdings
 
-http
-Copy
-Edit
 GET http://localhost:8080/api/wallet
 Update Holding by ID
 
-http
-Copy
-Edit
 PUT http://localhost:8080/api/wallet/{id}
 Delete Holding by ID
 
-http
-Copy
-Edit
 DELETE http://localhost:8080/api/wallet/{id}
 📣 Alerts APIs
 📌 One User → Many Alerts
 
 Create Alert
 
-http
-Copy
-Edit
 POST http://localhost:8080/alerts/create-alert
 Update Alert by ID
 
-http
-Copy
-Edit
 PUT http://localhost:8080/alerts/{id}
 Get All Active Alerts
 
-http
-Copy
-Edit
 GET http://localhost:8080/alerts/active
 📌 Alerts send email notifications when coin prices cross defined thresholds (automated via Quartz Scheduler).
 
 📊 Price API
 Get Current Price (Manual Check)
 
-http
-Copy
-Edit
 GET http://localhost:8080/api/price/{coinSymbol}
 📌 Example:
 
-http
-Copy
-Edit
 GET http://localhost:8080/api/price/eth
 📋 Summary & Report Generation
 📌 One User → One Summary / One Report
 
 Get Portfolio Summary
 
-http
-Copy
-Edit
 GET http://localhost:8080/api/summary
 Generate Report (PDF / Excel)
 
-http
-Copy
-Edit
 GET http://localhost:8080/api/report/export
 Example Query Parameter:
 
-ini
-Copy
-Edit
 format=pdf
 📌 Token required in Authorization header.
 
 🛡️ Admin APIs (Restricted to ADMIN Role)
 Get All Users
 
-http
-Copy
-Edit
 GET http://localhost:8080/admin/get-all-users
 Delete User by ID
 
-http
-Copy
-Edit
 DELETE http://localhost:8080/admin/delete-user/{id}
 📮 Authentication Flow
 1️⃣ User logs in → receives a JWT token
 2️⃣ Token must be passed in header:
 
-http
-Copy
-Edit
 Authorization: Bearer {token}
 3️⃣ Spring Security + JWT filters validate token & role-based access
 
@@ -241,23 +176,16 @@ Authorization: Bearer {token}
 
 📊 Example Requests
 📩 Example Login Request
-http
-Copy
-Edit
+
 POST http://localhost:8080/login
 Example JSON
 
-json
-Copy
-Edit
 {
   "email": "user@gmail.com",
   "password": "user@123"
 }
 📬 Example Login Response
-json
-Copy
-Edit
+
 {
   "message": "User has successfully logged in. Here is the generated token:",
   "data": "eyJhbGciOiJIUzI1NiJ9..."
