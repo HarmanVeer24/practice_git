@@ -1,34 +1,3 @@
-# 💰 Crypto Wallet Application — Spring Boot + JWT + Crypto API  
-
-Welcome to the **Crypto Wallet** application — a Spring Boot-powered backend service for managing crypto holdings, setting price alerts, and generating reports.
-
-This API-first application uses **JWT-based authentication**, **Spring Security**, and integrates with external coin price APIs for real-time price tracking.
-
----
-
-## 📦 Tech Stack  
-
-- Java 17  
-- Spring Boot  
-- Spring Security  
-- JWT (JSON Web Tokens)  
-- JPA / Hibernate (MySQL)  
-- Quartz Scheduler (for alerting)  
-- iTextPDF, Apache POI (for report generation)  
-- Postman (for API testing)  
-
----
-
-## 🚀 Getting Started  
-
-### ✅ Prerequisites  
-
-- Java 17+  
-- Maven  
-- MySQL  
-
----
-
 ## 🛠️ Project Setup  
 
 ### 1️⃣ Clone the Repository  
@@ -36,7 +5,6 @@ This API-first application uses **JWT-based authentication**, **Spring Security*
 ```bash
 git clone https://github.com/yourusername/crypto-wallet.git
 cd crypto-wallet
-
 2️⃣ Configure Database
 Update your MySQL credentials and database URL inside:
 
@@ -60,6 +28,7 @@ mvn spring-boot:run
 ⚠️ All APIs are tested via Postman. No frontend integrated yet.
 ⚠️ Token must be manually passed via Authorization header as:
 
+http
 Copy
 Edit
 Bearer {token}
@@ -112,8 +81,6 @@ Copy
 Edit
 PUT http://localhost:8080/reset-password
 📈 Crypto Holdings APIs
-📌 One User → Many Holdings
-
 Add Holding
 
 http
@@ -151,8 +118,6 @@ Copy
 Edit
 DELETE http://localhost:8080/api/wallet/{id}
 📣 Alerts APIs
-📌 One User → Many Alerts
-
 Create Alert
 
 http
@@ -171,8 +136,6 @@ http
 Copy
 Edit
 GET http://localhost:8080/alerts/active
-📌 Alerts send email notifications when coin prices cross defined thresholds (automated via Quartz Scheduler).
-
 📊 Price API
 Get Current Price (Manual Check)
 
@@ -180,15 +143,13 @@ http
 Copy
 Edit
 GET http://localhost:8080/api/price/{coinSymbol}
-📌 Example:
+Example:
 
 http
 Copy
 Edit
 GET http://localhost:8080/api/price/eth
 📋 Summary & Report Generation
-📌 One User → One Summary / One Report
-
 Get Portfolio Summary
 
 http
@@ -201,7 +162,7 @@ http
 Copy
 Edit
 GET http://localhost:8080/api/report/export
-📌 Example Query Parameter:
+Example Query Parameter:
 
 ini
 Copy
@@ -224,7 +185,7 @@ Edit
 DELETE http://localhost:8080/admin/delete-user/{id}
 📮 Authentication Flow
 1️⃣ User logs in → receives a JWT token
-2️⃣ Token must be passed in header:
+2️⃣ Token must be passed in the header:
 
 http
 Copy
@@ -259,11 +220,8 @@ Edit
   "message": "User has successfully logged in. Here is the generated token:",
   "data": "eyJhbGciOiJIUzI1NiJ9..."
 }
-📚 Additional Notes
-Crypto prices auto-updated via scheduled tasks but also fetchable manually.
+pgsql
+Copy
+Edit
 
-Summary & Report APIs analyze total gains/losses.
-
-Alerts notify users via email when coin prices cross their thresholds.
-
-Reports generated in both PDF and Excel.
+---
