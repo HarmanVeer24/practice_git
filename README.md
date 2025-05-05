@@ -7,6 +7,7 @@ git clone https://github.com/yourusername/crypto-wallet.git
 cd crypto-wallet
 2️⃣ Configure Database
 Update your MySQL credentials and database URL inside:
+```
 
 properties
 Copy
